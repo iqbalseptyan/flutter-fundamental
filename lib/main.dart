@@ -12,59 +12,54 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String message = "Text";
+  List<Widget> widgets = [];
+  int counter = 1;
 
-  int number = 0;
-  void onPressed() {
-    setState(() {
-      number = number + 1;
-    });
-  }
-
-  void onPressedReset() {
-    setState(() {
-      number = 0;
-    });
-  }
+  // _MyAppState() {
+  //   for (int i = 0; i < 15; i++) {
+  //     widgets.add(Text(
+  //       'data ke - ' + i.toString(),
+  //       style: TextStyle(fontSize: 50),
+  //     ));
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
       appBar: AppBar(
-        title: const Text("Anonymous Method"),
+        title: const Text("List & Listview"),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: ListView(
           children: [
-            Text(
-              number.toString(),
-              style: TextStyle(fontSize: 10 + number.toDouble()),
-            ),
-            Text(message),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 ElevatedButton(
-                  onPressed: () {
-                    onPressed();
-                    setState(() {
-                      message = "tombol ditekan";
-                    });
-                  },
-                  child: const Text('Tambah'),
-                ),
+                    onPressed: () {
+                      setState(() {
+                        widgets.add(Text(
+                          "data ke- " + counter.toString(),
+                          style: const TextStyle(fontSize: 30),
+                        ));
+                        counter++;
+                      });
+                    },
+                    child: const Text('Tambah data')),
                 ElevatedButton(
-                  onPressed: () {
-                    onPressedReset();
-                    setState(() {
-                      message = "Text";
-                    });
-                  },
-                  child: const Text('Reset'),
-                ),
+                    onPressed: () {
+                      setState(() {
+                        widgets.removeLast();
+                        counter--;
+                      });
+                    },
+                    child: const Text('Hapus data')),
               ],
+            ),
+            Column(
+              children: widgets,
             )
           ],
         ),
