@@ -10,135 +10,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-          appBar: AppBar(
-            title: const Text("Stack & Align"),
-          ),
-          body: Stack(
-            children: [
-              Column(
-                children: [
-                  Flexible(
-                      flex: 1,
-                      child: Row(
-                        children: [
-                          Flexible(
-                              flex: 1,
-                              child: Container(
-                                color: Colors.white,
-                              )),
-                          Flexible(
-                              flex: 1,
-                              child: Container(
-                                color: Colors.black12,
-                              ))
-                        ],
-                      )),
-                  Flexible(
-                      flex: 1,
-                      child: Row(
-                        children: [
-                          Flexible(
-                              flex: 1,
-                              child: Container(
-                                color: Colors.black12,
-                              )),
-                          Flexible(
-                              flex: 1,
-                              child: Container(
-                                color: Colors.white,
-                              ))
-                        ],
-                      )),
-                ],
-              ),
-              ListView(
-                children: [
-                  Column(
-                    children: [
-                      Container(
-                        margin: const EdgeInsets.all(5),
-                        child: const Text(
-                          "lapisan tengah",
-                          style: TextStyle(fontSize: 50),
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.all(5),
-                        child: const Text(
-                          "lapisan tengah",
-                          style: TextStyle(fontSize: 50),
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.all(5),
-                        child: const Text(
-                          "lapisan tengah",
-                          style: TextStyle(fontSize: 50),
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.all(5),
-                        child: const Text(
-                          "lapisan tengah",
-                          style: TextStyle(fontSize: 50),
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.all(5),
-                        child: const Text(
-                          "lapisan tengah",
-                          style: TextStyle(fontSize: 50),
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.all(5),
-                        child: const Text(
-                          "lapisan tengah",
-                          style: TextStyle(fontSize: 50),
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.all(5),
-                        child: const Text(
-                          "lapisan tengah",
-                          style: TextStyle(fontSize: 50),
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.all(5),
-                        child: const Text(
-                          "lapisan tengah",
-                          style: TextStyle(fontSize: 50),
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.all(5),
-                        child: const Text(
-                          "lapisan tengah",
-                          style: TextStyle(fontSize: 50),
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.all(5),
-                        child: const Text(
-                          "lapisan tengah",
-                          style: TextStyle(fontSize: 50),
-                        ),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-              Center(
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: const Text("tombol"),
-                  style: ElevatedButton.styleFrom(primary: Colors.purple),
+        home: Scaffold(
+            appBar: AppBar(
+              title: const Text("Stack & Align"),
+            ),
+            body: Center(
+              child: Container(
+                color: Colors.black,
+                width: 200,
+                height: 200,
+                padding: const EdgeInsets.all(3),
+                child: const Image(
+                  image: NetworkImage("https://picsum.photos/200"),
+                  fit: BoxFit.cover,
                 ),
-              )
-            ],
-          )),
-    );
+              ),
+            )));
   }
 }
