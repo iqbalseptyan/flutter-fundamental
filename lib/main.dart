@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,56 +14,27 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List<Widget> widgets = [];
-  int counter = 1;
-
-  // _MyAppState() {
-  //   for (int i = 0; i < 15; i++) {
-  //     widgets.add(Text(
-  //       'data ke - ' + i.toString(),
-  //       style: TextStyle(fontSize: 50),
-  //     ));
-  //   }
-  // }
+  Random random = Random();
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
       appBar: AppBar(
-        title: const Text("List & Listview"),
+        title: const Text("Animated Container"),
       ),
       body: Center(
-        child: ListView(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                ElevatedButton(
-                    onPressed: () {
-                      setState(() {
-                        widgets.add(Text(
-                          "data ke- " + counter.toString(),
-                          style: const TextStyle(fontSize: 30),
-                        ));
-                        counter++;
-                      });
-                    },
-                    child: const Text('Tambah data')),
-                ElevatedButton(
-                    onPressed: () {
-                      setState(() {
-                        widgets.removeLast();
-                        counter--;
-                      });
-                    },
-                    child: const Text('Hapus data')),
-              ],
-            ),
-            Column(
-              children: widgets,
-            )
-          ],
+        child: GestureDetector(
+          onTap: () {
+            setState(() {});
+          },
+          child: AnimatedContainer(
+            color: Color.fromARGB(255, random.nextInt(256), random.nextInt(256),
+                random.nextInt(256)),
+            duration: const Duration(milliseconds: 500),
+            width: 50.0 + random.nextInt(101),
+            height: 50.0 + random.nextInt(101),
+          ),
         ),
       ),
     ));
