@@ -12,19 +12,31 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         home: Scaffold(
             appBar: AppBar(
-              title: const Text("Stack & Align"),
+              title: const Text("Spacer"),
             ),
             body: Center(
-              child: Container(
-                color: Colors.black,
-                width: 200,
-                height: 200,
-                padding: const EdgeInsets.all(3),
-                child: const Image(
-                  image: NetworkImage("https://picsum.photos/200"),
-                  fit: BoxFit.cover,
+                child: Row(
+              children: [
+                const Spacer(flex: 1),
+                Container(
+                  width: 80,
+                  height: 80,
+                  color: Colors.red,
                 ),
-              ),
-            )));
+                const Spacer(flex: 1),
+                Container(
+                  width: 80,
+                  height: 80,
+                  color: Colors.yellow,
+                ),
+                const Spacer(flex: 1),
+                Container(
+                  width: 80,
+                  height: 80,
+                  color: Colors.green,
+                ),
+                const Spacer(flex: 1)
+              ],
+            ))));
   }
 }
