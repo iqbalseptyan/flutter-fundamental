@@ -12,6 +12,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  String message = "Text";
+
   int number = 0;
   void onPressed() {
     setState(() {
@@ -30,7 +32,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
         home: Scaffold(
       appBar: AppBar(
-        title: const Text("Stateful Widget"),
+        title: const Text("Anonymous Method"),
       ),
       body: Center(
         child: Column(
@@ -40,15 +42,26 @@ class _MyAppState extends State<MyApp> {
               number.toString(),
               style: TextStyle(fontSize: 10 + number.toDouble()),
             ),
+            Text(message),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 ElevatedButton(
-                  onPressed: onPressed,
+                  onPressed: () {
+                    onPressed();
+                    setState(() {
+                      message = "tombol ditekan";
+                    });
+                  },
                   child: const Text('Tambah'),
                 ),
                 ElevatedButton(
-                  onPressed: onPressedReset,
+                  onPressed: () {
+                    onPressedReset();
+                    setState(() {
+                      message = "Text";
+                    });
+                  },
                   child: const Text('Reset'),
                 ),
               ],
